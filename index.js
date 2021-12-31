@@ -1,3 +1,4 @@
+require('dotenv').config() // connecting to cluster, not using local db
 const http = require('http')
 const express = require('express')
 const app = express()
@@ -13,7 +14,9 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema)
 
-const mongoUrl = 'mongodb://localhost/bloglist'
+// I don't know how to set up mongodb locally, so using the remote connection
+// URL from exercise: 'mongodb://localhost/bloglist'
+const mongoUrl = process.env.MONGODB_URI
 mongoose.connect(mongoUrl)
 
 app.use(cors())
