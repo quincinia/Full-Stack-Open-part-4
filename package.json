@@ -20,5 +20,10 @@
   "homepage": "https://github.com/quincinia/Full-Stack-Open-part-4#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
   }
 }
