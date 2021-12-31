@@ -1,0 +1,13 @@
+### GET all
+GET http://localhost/bloglist/api/blogs
+
+### POST new blog 
+POST http://localhost/bloglist/api/blogs
+content-type: application/json
+{
+    "title": "Test blog",
+    "author": "Jacob Gayban",
+    "url": "http://localhost/bloglist",
+    "likes": "999"
+}
+
