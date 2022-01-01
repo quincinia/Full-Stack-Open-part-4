@@ -18,7 +18,7 @@ describe('total likes', () => {
         expect(result).toBe(999)
     })
 
-    test('of empty list is zero', () => {
+    test('of bigger list is calculated right', () => {
         const blogs = [
             {
                 _id: '5a422a851b54a676234d17f7',
