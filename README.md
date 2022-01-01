@@ -18,7 +18,7 @@ Set up eslint in this exercise.
 `likes` property should be a Number, and not a String.
 
 ## Exercise 4.5
-
+Uses the same test cases as 4.4.
 
 ## Exercise 4.6
 
