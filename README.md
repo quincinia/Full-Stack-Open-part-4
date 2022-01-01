@@ -12,7 +12,7 @@ Changed the connection string from `mongodb://localhost/bloglist` to `process.en
 Added the `toJSON` formatter to the model. Established an import order (external dependencies -> custom modules -> init app)
 
 ## Exercise 4.3
-
+Set up eslint in this exercise.
 
 ## Exercise 4.4
 
