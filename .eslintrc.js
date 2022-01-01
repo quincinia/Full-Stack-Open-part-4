@@ -33,7 +33,7 @@ module.exports = {
             'error', 'always'
         ],
         'arrow-spacing': [
-            'error', 'always'
+            'error', { 'before': true, 'after': true }
         ],
         'no-console': 0
     }
