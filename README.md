@@ -21,6 +21,6 @@ Set up eslint in this exercise.
 Uses the same test cases as 4.4.
 
 ## Exercise 4.6
-
+Uses the same test cases as 4.4. 
 
 ## Exercise 4.7

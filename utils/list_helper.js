@@ -28,8 +28,33 @@ const favoriteBlog = (blogs) => {
     } : result
 }
 
+const mostBlogs = (blogs) => {
+    let counter = {}
+
+    // Increments or inits the blog count of an author
+    const update = (author) => {
+        counter[author] = (counter[author] || 0) + 1
+    }
+
+    // Count all the blogs
+    blogs.forEach(blog => update(blog.author))
+
+    // 'result' stores the name of the author
+    let result = null
+    for (const author in counter) {
+        if (result !== null) {
+            result = counter[result] > counter[author] ? result : author
+        } else {
+            result = author
+        }
+    }
+
+    return result === null ? null : { author: result, blogs: counter[result] }
+}
+
 module.exports = {
     dummy,
     totalLikes,
-    favoriteBlog
+    favoriteBlog,
+    mostBlogs
 }
