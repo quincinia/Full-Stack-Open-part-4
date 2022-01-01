@@ -15,7 +15,7 @@ Added the `toJSON` formatter to the model. Established an import order (external
 Set up eslint in this exercise.
 
 ## Exercise 4.4
-
+`likes` property should be a Number, and not a String.
 
 ## Exercise 4.5
 
