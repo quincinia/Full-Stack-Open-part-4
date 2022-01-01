@@ -4,9 +4,9 @@
   "description": "Submissions for FSO part 4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/quincinia/Full-Stack-Open-part-4#readme",
   "devDependencies": {
+    "jest": "^27.4.5",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
@@ -26,5 +27,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
