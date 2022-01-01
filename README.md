@@ -9,7 +9,7 @@ I will try to update each readme with notes on each of the exercises
 Changed the connection string from `mongodb://localhost/bloglist` to `process.env.MONGODB_URI`; I don't have MongoDB set up locally.
 
 ## Exercise 4.2
-
+Added the `toJSON` formatter to the model. Established an import order (external dependencies -> custom modules -> init app)
 
 ## Exercise 4.3
 
