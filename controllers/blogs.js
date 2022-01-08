@@ -12,14 +12,16 @@ blogsRouter.get('/', async (req, res) => {
     res.json(blogs)
 })
 
-blogsRouter.post('/', (req, res) => {
-    const blog = new Blog(req.body)
+blogsRouter.post('/', async (req, res) => {
+    const info = req.body
 
-    blog
-        .save()
-        .then(result => {
-            res.status(201).json(result)
-        })
+    if (info.likes === undefined) {
+        info.likes = 0
+    }
+
+    const blog = new Blog(info)
+    const result = await blog.save()
+    res.status(201).json(result)
 })
 
 module.exports = blogsRouter

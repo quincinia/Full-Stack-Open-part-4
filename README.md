@@ -15,6 +15,7 @@ No code changes (besides setting up the test).
 POST route uses status code 201 rather than 200 like in the material.
 
 ## Exercise 4.11
+Added an if-statement, did the refactoring here. (switched to async/await)
 
 ## Exercise 4.12
 
