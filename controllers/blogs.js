@@ -15,6 +15,10 @@ blogsRouter.get('/', async (req, res) => {
 blogsRouter.post('/', async (req, res) => {
     const info = req.body
 
+    if (!info.title && !info.url) {
+        return res.status(400).json({ error: '\'title\' and \'url\' fields must be defined' })
+    }
+
     if (info.likes === undefined) {
         info.likes = 0
     }
