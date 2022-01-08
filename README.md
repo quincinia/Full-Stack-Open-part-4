@@ -24,3 +24,4 @@ Another if-statement to POST.
 Simple DELETE route.
 
 ## Exercise 4.14
+Simple PUT route. Moved validators for 4.11 and 4.12 into the model, added more tests for 4.12.

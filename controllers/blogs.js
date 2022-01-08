@@ -15,14 +15,14 @@ blogsRouter.get('/', async (req, res) => {
 blogsRouter.post('/', async (req, res) => {
     const info = req.body
 
-    // Add this as validators (see if you can do AND as well)
-    if (!info.title && !info.url) {
-        return res.status(400).json({ error: '\'title\' and \'url\' fields must be defined' })
-    }
+    // Added as validators under blog model
+    // if (!info.title && !info.url) {
+    //     return res.status(400).json({ error: '\'title\' and \'url\' fields must be defined' })
+    // }
 
-    if (info.likes === undefined) {
-        info.likes = 0
-    }
+    // if (info.likes === undefined) {
+    //     info.likes = 0
+    // }
 
     const blog = new Blog(info)
     const result = await blog.save()
@@ -37,7 +37,7 @@ blogsRouter.delete('/:id', async (req, res) => {
 blogsRouter.put('/:id', async (req, res) => {
     const id = req.params.id
     const info = req.body
-    const updatedBlog = await Blog.findByIdAndUpdate(id, { likes: info.likes }, { new: true })
+    const updatedBlog = await Blog.findByIdAndUpdate(id, { likes: info.likes }, { new: true, runValidators: true })
     res.json(updatedBlog)
 })
 module.exports = blogsRouter

@@ -7,7 +7,19 @@ const blogSchema = new mongoose.Schema({
     title: String,
     author: String,
     url: String,
-    likes: Number
+    likes: {
+        type: Number,
+        default: 0 // 0 if undefined
+    }
+})
+
+// See https://stackoverflow.com/a/36413472
+blogSchema.pre('validate', function (next) {
+    if (!this.title && !this.url) {
+        this.invalidate('title', 'title OR url must be defined', this.title)
+        this.invalidate('url',   'title OR url must be defined', this.url)
+    }
+    next()
 })
 
 // Adding the formatter
