@@ -12,6 +12,7 @@ Set up different program environments (cross-env) and supertest. Added test help
 No code changes (besides setting up the test).
 
 ## Exercise 4.10
+POST route uses status code 201 rather than 200 like in the material.
 
 ## Exercise 4.11
 
