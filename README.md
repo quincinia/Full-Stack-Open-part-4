@@ -21,5 +21,6 @@ Added an if-statement to the POST route, did the refactoring here. (switched to 
 Another if-statement to POST.
 
 ## Exercise 4.13
+Simple DELETE route.
 
 ## Exercise 4.14
