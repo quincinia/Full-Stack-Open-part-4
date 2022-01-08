@@ -2,6 +2,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+require('express-async-errors')
 
 // Custom modules
 const blogsRouter = require('./controllers/blogs')

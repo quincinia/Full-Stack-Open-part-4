@@ -6,6 +6,7 @@ Exercises are divided by their parts (a, b, c, and d), with their own respective
 Builds off of part4a
 
 ## Exercise 4.8
+Set up different program environments (cross-env) and supertest. Added test helpers.
 
 ## Exercise 4.9
 
