@@ -7,3 +7,6 @@ Builds off of the previous parts
 
 ## Exercise 4.15
 Followed the story pretty much exactly as it was shown.
+
+## Exercise 4.16
+Added validation for username/password, used optional chaining
