@@ -9,6 +9,7 @@ content-type: application/json
     "title": "Test blog",
     "author": "Jacob Gayban",
     "url": "http://localhost/bloglist",
-    "likes": "999"
+    "likes": "999",
+    "user": "copy from database"
 }
 
