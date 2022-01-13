@@ -11,3 +11,33 @@ content-type: application/json
     "password": "secret"
 }
 
+### Non-unique username
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "quincinia",
+    "name": "jacob gayban?",
+    "password": "secret"
+}
+
+### Invalid username
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "qu",
+    "name": "jacob gayban",
+    "password": "secret"
+}
+
+
+### Invalid password
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "quintwinia",
+    "name": "jacob gayban",
+    "password": "se"
+}
