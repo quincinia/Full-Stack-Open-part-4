@@ -4,12 +4,12 @@ GET http://localhost:3003/api/blogs
 ### POST new blog 
 POST http://localhost:3003/api/blogs
 content-type: application/json
+authorization: bearer <token>
 
 {
-    "title": "Test blog",
+    "title": "POST using token",
     "author": "Jacob Gayban",
     "url": "http://localhost/bloglist",
-    "likes": "999",
-    "user": "copy from database"
+    "likes": "999"
 }
 

@@ -16,3 +16,6 @@ Manually added the ObjectId's through MongoDB
 
 ## Exercise 4.18
 Added logging in with token authentication. Follows the story pretty much exactly the same.
+
+## Exercise 4.19
+Uses tokens to assign a creator to a blog post. Blog requests no longer need a "user" field. Using `findByIdAndUpdate` instead of `save` to get around the "expected `id` to be unique" error.
