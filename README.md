@@ -13,3 +13,6 @@ Added validation for username/password, used optional chaining
 
 ## Exercise 4.17
 Manually added the ObjectId's through MongoDB  
+
+## Exercise 4.18
+Added logging in with token authentication. Follows the story pretty much exactly the same.

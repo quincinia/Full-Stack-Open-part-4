@@ -1,0 +1,26 @@
+### User 1 login
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+    "username": "quincinia",
+    "password": "secret"
+}
+
+### User 2 login
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+    "username": "quintwinia",
+    "password": "secret"
+}
+
+### Login fail
+POST http://localhost:3003/api/login
+content-type: application/json
+
+{
+    "username": "quintwinia",
+    "password": "seeecret"
+}
