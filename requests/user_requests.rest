@@ -11,6 +11,16 @@ content-type: application/json
     "password": "secret"
 }
 
+### Second test user
+POST http://localhost:3003/api/users
+content-type: application/json
+
+{
+    "username": "quintwinia",
+    "name": "jacob gayban?",
+    "password": "secret"
+}
+
 ### Non-unique username
 POST http://localhost:3003/api/users
 content-type: application/json

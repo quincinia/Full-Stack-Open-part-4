@@ -10,3 +10,6 @@ Followed the story pretty much exactly as it was shown.
 
 ## Exercise 4.16
 Added validation for username/password, used optional chaining
+
+## Exercise 4.17
+Manually added the ObjectId's through MongoDB  
