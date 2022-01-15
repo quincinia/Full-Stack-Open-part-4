@@ -7,9 +7,20 @@ content-type: application/json
 authorization: bearer <token>
 
 {
-    "title": "POST using token",
+    "title": "4.20 POST using token",
     "author": "Jacob Gayban",
     "url": "http://localhost/bloglist",
     "likes": "999"
 }
 
+### Unsupported authorization scheme, causes JWT error
+POST http://localhost:3003/api/blogs
+content-type: application/json
+authorization: basic dGVzdDp0ZXN0
+
+{
+    "title": "4.20 Failed POST using token",
+    "author": "Jacob Gayban",
+    "url": "http://localhost/bloglist",
+    "likes": "999"
+}

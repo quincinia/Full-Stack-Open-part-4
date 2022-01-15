@@ -19,3 +19,7 @@ Added logging in with token authentication. Follows the story pretty much exactl
 
 ## Exercise 4.19
 Uses tokens to assign a creator to a blog post. Blog requests no longer need a "user" field. Using `findByIdAndUpdate` instead of `save` to get around the "expected `id` to be unique" error.
+
+## Exercise 4.20
+Moved the token extracting function into `utils/middleware` rather than keeping it within `controllers/blogs`. When attaching the middleware, make sure it is attached BEFORE the blogs router is attached.  
+Updated error handler to handle JsonWebTokenErrors.
