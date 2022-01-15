@@ -26,3 +26,6 @@ Updated error handler to handle JsonWebTokenErrors.
 
 ## Exercise 4.21
 DELETEing a blog now uses authentication. Follows the same pattern as the POST route.
+
+## Exercise 4.22
+Made a new middleware to grab the associated user from a token. Used in in the `blogs` controller.

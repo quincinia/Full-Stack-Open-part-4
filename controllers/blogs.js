@@ -1,5 +1,5 @@
 const blogsRouter = require('express').Router()
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 const Blog = require('../models/blog')
 const User = require('../models/user')
 
@@ -16,11 +16,6 @@ blogsRouter.get('/', async (req, res) => {
 
 blogsRouter.post('/', async (req, res) => {
     const info = req.body
-    const token = req.token
-    const decodedToken = jwt.verify(token, process.env.SECRET)
-    if (!token || !decodedToken.id) { // Need to make sure the id points to something before we use it
-        return res.status(401).json({ error: 'token missing or invalid' })
-    }
 
     // Added as validators under blog model
     // if (!info.title && !info.url) {
@@ -31,8 +26,7 @@ blogsRouter.post('/', async (req, res) => {
     //     info.likes = 0
     // }
 
-    // id needs to be valid
-    const user = await User.findById(decodedToken.id)
+    const user = req.user
 
     // Don't use spread syntax because more data might be sent over than expected?
     const blog = new Blog({
@@ -51,13 +45,7 @@ blogsRouter.post('/', async (req, res) => {
 })
 
 blogsRouter.delete('/:id', async (req, res) => {
-    // Similar to POST
-    const token = req.token
-    const decodedToken = jwt.verify(token, process.env.SECRET)
-    if (!token || !decodedToken.id) {
-        return res.status(401).json({ error: 'token missing or invalid' })
-    }
-    const user = await User.findById(decodedToken.id)
+    const user = req.user
     const blog = await Blog.findById(req.params.id)
     if (user._id.toString() === blog.user.toString()) {
         await Blog.findByIdAndDelete(req.params.id)
