@@ -19,13 +19,27 @@ const errorHandler = (error, req, res, next) => {
         return res.status(400).send({ error: 'malformatted id' })
     } else if (error.name === 'ValidationError') {
         return res.status(400).json({ error: error.message }) // Not sure why this uses .json() instead of .send()
+    } else if (error.name === 'JsonWebTokenError') {
+        return res.status(401).json({ error: 'invalid token' })
     }
 
     next(error)
 }
 
+const tokenExtractor = (req, res, next) => {
+    const authorization = req.get('authorization')
+    if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+        req.token = authorization.substring(7)
+    } else {
+        req.token = 'fail'
+    }
+
+    next()
+}
+
 module.exports = {
     requestLogger,
     unknownEndpoint,
-    errorHandler
+    errorHandler,
+    tokenExtractor
 }

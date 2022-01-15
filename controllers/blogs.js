@@ -3,14 +3,6 @@ const jwt = require('jsonwebtoken')
 const Blog = require('../models/blog')
 const User = require('../models/user')
 
-const getTokenFrom = req => {
-    const authorization = req.get('authorization')
-    if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-        return authorization.substring(7)
-    }
-    return null
-}
-
 blogsRouter.get('/', async (req, res) => {
     // Blog
     //     .find({})
@@ -24,9 +16,9 @@ blogsRouter.get('/', async (req, res) => {
 
 blogsRouter.post('/', async (req, res) => {
     const info = req.body
-    const token = getTokenFrom(req)
+    const token = req.token
     const decodedToken = jwt.verify(token, process.env.SECRET)
-    if (!token || !decodedToken.id) { // Not too sure why we're checking the id here
+    if (!token || !decodedToken.id) { // Need to make sure the id points to something before we use it
         return res.status(401).json({ error: 'token missing or invalid' })
     }
 
@@ -39,7 +31,7 @@ blogsRouter.post('/', async (req, res) => {
     //     info.likes = 0
     // }
 
-    // Is this why we check for the id?
+    // id needs to be valid
     const user = await User.findById(decodedToken.id)
 
     // Don't use spread syntax because more data might be sent over than expected?
@@ -69,4 +61,5 @@ blogsRouter.put('/:id', async (req, res) => {
     const updatedBlog = await Blog.findByIdAndUpdate(id, { likes: info.likes }, { new: true, runValidators: true })
     res.json(updatedBlog)
 })
+
 module.exports = blogsRouter
