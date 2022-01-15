@@ -23,3 +23,6 @@ Uses tokens to assign a creator to a blog post. Blog requests no longer need a "
 ## Exercise 4.20
 Moved the token extracting function into `utils/middleware` rather than keeping it within `controllers/blogs`. When attaching the middleware, make sure it is attached BEFORE the blogs router is attached.  
 Updated error handler to handle JsonWebTokenErrors.
+
+## Exercise 4.21
+DELETEing a blog now uses authentication. Follows the same pattern as the POST route.
