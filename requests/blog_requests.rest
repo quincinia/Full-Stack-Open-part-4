@@ -24,3 +24,7 @@ authorization: basic dGVzdDp0ZXN0
     "url": "http://localhost/bloglist",
     "likes": "999"
 }
+
+### DELETE (with token)
+DELETE http://localhost:3003/api/blogs
+authorization: bearer <token>
