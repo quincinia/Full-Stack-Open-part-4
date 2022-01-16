@@ -2,6 +2,7 @@ const blogsRouter = require('express').Router()
 // const jwt = require('jsonwebtoken')
 const Blog = require('../models/blog')
 const User = require('../models/user')
+const middleware = require('../utils/middleware')
 
 blogsRouter.get('/', async (req, res) => {
     // Blog
@@ -14,7 +15,7 @@ blogsRouter.get('/', async (req, res) => {
     res.json(blogs)
 })
 
-blogsRouter.post('/', async (req, res) => {
+blogsRouter.post('/', middleware.userExtractor, async (req, res) => {
     const info = req.body
 
     // Added as validators under blog model
@@ -44,7 +45,7 @@ blogsRouter.post('/', async (req, res) => {
     res.status(201).json(result)
 })
 
-blogsRouter.delete('/:id', async (req, res) => {
+blogsRouter.delete('/:id', middleware.userExtractor, async (req, res) => {
     const user = req.user
     const blog = await Blog.findById(req.params.id)
     if (user._id.toString() === blog.user.toString()) {
