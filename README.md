@@ -29,3 +29,13 @@ DELETEing a blog now uses authentication. Follows the same pattern as the POST r
 
 ## Exercise 4.22
 Made a new middleware to grab the associated user from a token. Used in in the `blogs` controller.
+
+## Exercise 4.23
+Updated the test helper to match the current Blog schema.  
+`userExtractor` needed to be moved to the routes that need it because it threw token errors for routes that don't require a token (specifically GET).
+
+PUT does not require a token to use.
+
+Note: You can't generate a new ObjectId using an existing value. If you want to use an existing ObjectId, get a reference to it. The test for exercise 4-13 has a different `beforeEach` function for this, as this issue only affects deleting a blog.
+
+Note 2: Tokens do eventually go bad, even if we haven't put an explicit timer on them (?). Make sure to generate a new token by logging in before performing tests
