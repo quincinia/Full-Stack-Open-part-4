@@ -9,8 +9,8 @@ const Blog = require('../models/blog')
 beforeEach(async () => {
     await Blog.deleteMany({})
 
-    const blogs = helper.initialBlogs.map(blog => new Blog(blog))
-    const blogsBeingSaved = blogs.map(blog => blog.save())
+    const blogs = helper.initialBlogs.map((blog) => new Blog(blog))
+    const blogsBeingSaved = blogs.map((blog) => blog.save())
     await Promise.all(blogsBeingSaved)
 })
 
@@ -20,11 +20,12 @@ describe('validation of title and url', () => {
             // title: 'Blog for tests',
             author: 'Jacob Gayban',
             // url: 'http://localhost',
-            likes: 999
+            likes: 999,
         }
 
         await api
             .post('/api/blogs')
+            .set('Authorization', 'bearer ' + process.env.TEST_TOKEN)
             .send(newBlog)
             .expect(400)
     }, 100000)
@@ -34,11 +35,12 @@ describe('validation of title and url', () => {
             title: 'Blog for tests',
             author: 'Jacob Gayban',
             // url: 'http://localhost',
-            likes: 999
+            likes: 999,
         }
 
         await api
             .post('/api/blogs')
+            .set('Authorization', 'bearer ' + process.env.TEST_TOKEN)
             .send(newBlog)
             .expect(201)
     })
@@ -48,11 +50,12 @@ describe('validation of title and url', () => {
             // title: 'Blog for tests',
             author: 'Jacob Gayban',
             url: 'http://localhost',
-            likes: 999
+            likes: 999,
         }
 
         await api
             .post('/api/blogs')
+            .set('Authorization', 'bearer ' + process.env.TEST_TOKEN)
             .send(newBlog)
             .expect(201)
     })
